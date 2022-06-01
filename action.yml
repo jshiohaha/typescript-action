@@ -1,11 +1,25 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Update package versions'
+description: 'Action to parse pull request approved comments for semvar updates'
+author: 'jshiohaha'
 inputs:
-  milliseconds: # change this
+  repo-owner:
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: 'Resository owner'
+  repo-name:
+    required: true
+    description: 'Repository name'
+  auth-token:
+    required: true
+    description: 'GH auth token - used to pull data for the relevent PR'
+  pull-number:
+    required: true
+    description: 'PR number'
+  package:
+    required: false
+    description: 'Only consider changes in files for this specific package'
+  language:
+    required: false
+    description: 'Only consider changes in files for this specific language'
 runs:
   using: 'node16'
   main: 'dist/index.js'
